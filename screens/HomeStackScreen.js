@@ -1,7 +1,6 @@
 import React from 'react'
 import HomeScreen from './HomeScreen';
 import PostsListScreen from './PostsListsScreen';
-
 import {createStackNavigator} from '@react-navigation/stack'
 import PostDetailsScreen from './PostDetailsScreen';
 
@@ -17,6 +16,7 @@ function HomeStackScreen(){
             headerTitleStyle: {
                 alignSelf: 'center',
                 fontWeight: 'bold',
+                fontFamily: 'Raleway'
             },
         }}>
             <HomeStack.Screen name="Home" component={HomeScreen} options={{title:'Accueil'}}/>

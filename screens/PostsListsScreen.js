@@ -1,11 +1,11 @@
 import React from 'react'
 import {View} from 'react-native';
-import PostsItems from '../components/PostsItems';
+import GetPostsItems from '../components/GetPostsItems';
 
 function PostsListScreen({navigation}){
     return(
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <PostsItems navigation={navigation} />
+            <GetPostsItems navigation={navigation} />
         </View>
     )
 }
