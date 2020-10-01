@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import {FlatList, TouchableOpacity} from 'react-native-gesture-handler'
-import PostDetailsScreen from '../screens/PostDetailsScreen'
+import {padding, fonts, colors} from '../assets/baseStyles'
 import axios from 'axios'
-import {Text, View} from 'react-native'
+import {Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native'
 
 function PostsItems({navigation}) {
     const [postsData, setPostsData] = useState([])
@@ -23,9 +22,12 @@ function PostsItems({navigation}) {
     return (
         <FlatList data={postsData}
                   renderItem={({item}) =>
-                      <TouchableOpacity onPress={()=> goToPost(item.id)}>
-                          <View>
-                              <Text>{item.title}</Text>
+                      <TouchableOpacity onPress={()=> goToPost(item.id)} underlayColor={colors.underlay}>
+                          <View style={styles.itemStyles}>
+                              <View style={styles.row}>
+                                  <Text>{item.title}</Text>
+                                  <Text style={styles.arrowPosition}>test</Text>
+                              </View>
                           </View>
                       </TouchableOpacity>
                   }
@@ -33,5 +35,19 @@ function PostsItems({navigation}) {
         />
     );
 }
+const styles = StyleSheet.create({
+    row:{
+        flexDirection: 'row'
+    },
+    arrowPosition: {
 
+    },
+    itemStyles: {
+        paddingHorizontal: padding.md,
+        paddingVertical: padding.sm,
+        borderBottomWidth: 1,
+        borderStyle: 'solid',
+        borderBottomColor: 'rgba(0,0,0,0.1)'
+    }
+})
 export default PostsItems;
